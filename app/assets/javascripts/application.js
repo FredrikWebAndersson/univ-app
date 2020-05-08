@@ -20,4 +20,5 @@
 $(document).on("turbolinks:load", function() {
   $(".dropdown-trigger").dropdown();
   $(".sidenav").sidenav();
+  $("#fadeout-target").fadeOut(4000);
 });

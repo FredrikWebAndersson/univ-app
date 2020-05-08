@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Disable fields with errors
+resources : https://coderwall.com/p/s-zwrg/remove-rails-field_with_errors-wrapper
 
-Things you may want to cover:
+If errors, rails generate automatically a div class fields_with_errors. 
+Disable this with this helper methon inside cofig/environnment.rb
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```ruby
+  ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+  html_tag.html_safe
+end
+```

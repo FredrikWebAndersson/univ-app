@@ -1,10 +1,32 @@
+<!-- Display error messages -->
+<% if @student.errors.any? %>
+  <div class="container">
+    <div class="row signup-form">
+      <div class="col s12 m8 offset-m2">
+        <div class="card-panel red lighten-2">
+          <span class="white-text">
+            <strong><%= pluralize(@student.errors.count, "error") %></strong>
+            prohibited your profile from being created:
+            <ul>
+              <% @student.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %> <!-- end Error messages -->
+
+<!-- Student Signup form -->
 <div class="container">
   <div class="row center signup-form">
     <div class="col s12 m8 offset-m2">
       <div class="card-panel">
         <h3 class="header">Sign up!</h3>
         <div class="row">
-          <%= form_for(@student, html: {class: "col s12"}, url: {action: "create"}) do |f| %>
+          <%= form_for(@student, html: {class: "col s12"}) do |f| %>
             <div class="row">
               <div class="input-field col s10 m8 offset-s1 offset-m2">
                 <i class="material-icons prefix">account_circle</i>
