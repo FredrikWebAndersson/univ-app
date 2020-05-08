@@ -1,0 +1,24 @@
+<h3 class="center-align">Students Directory</h3>
+
+<table class="highlight">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.email %></td>
+        <td>
+          <%= link_to student_path(student) do %>
+            <i class="small material-icons teal-text text-lighten-1 centered">account_circle</i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
