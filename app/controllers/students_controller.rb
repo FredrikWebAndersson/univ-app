@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   before_action :get_student, only: [:show, :edit, :update]
-  
+  skip_before_action :require_user, only: [:new, :edit, :create]
+  before_action :require_current_user, only: [:edit, :update]
   def index
     @students = Student.all
   end
@@ -15,6 +16,7 @@ class StudentsController < ApplicationController
   def create 
     @student = Student.new(student_params)
     if @student.save
+      session[:student_id] = @student.id
       flash[:notice] = "Account successfully created"
       redirect_to student_path(@student.id)
     else
@@ -42,6 +44,13 @@ class StudentsController < ApplicationController
 
   def student_params
     params.require(:student).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def require_current_user
+    if current_user != @student 
+      flash[:notice] = "You can only edit your own profile"
+      redirect_to student_path(current_user)
+    end
   end
 
 end

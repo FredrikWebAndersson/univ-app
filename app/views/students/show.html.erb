@@ -10,7 +10,9 @@
           <strong><%= @student.email %></strong>
           <p>Course enrollments: none</p> 
         </span>
-        <%= link_to '<i class="material-icons right">create</i> Edit'.html_safe, edit_student_path(@student), class: "waves-effect waves-light btn grey darken-3" %>
+        <% if current_user == @student %>
+          <%= link_to '<i class="material-icons right">create</i> Edit'.html_safe, edit_student_path(@student), class: "waves-effect waves-light btn grey darken-3" %>
+        <% end %>
       </div>
     </div>
   </div>
