@@ -1,16 +1,20 @@
   <!-- Dropdown1 Structure -->
   <ul id="dropdown1" class="dropdown-content">
-    <li><a class="orange-text text-darken-3" href="#!">one</a></li>
-    <li><a class="orange-text text-darken-3" href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><a class="orange-text text-darken-3" href="#!">three</a></li>
+    <% if !logged_in? %>
+      <li><%= link_to "Log In", login_path %></li>  
+      <li><%= link_to "Sign up", new_student_path %></li>
+    <% else %>
+      <li><%= link_to"Log out", logout_path, method: :delete %></li> 
+    <% end %>
   </ul>
   <!-- Dropdown2 Structure -->
   <ul id="dropdown2" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <% if !logged_in? %>
+      <li><%= link_to "Log In", login_path %></li>  
+      <li><%= link_to "Sign up", new_student_path %></li>
+    <% else %>
+      <li><%= link_to"Log out", logout_path, method: :delete %></li> 
+    <% end %>
   </ul>
 
   <nav>

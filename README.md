@@ -22,3 +22,11 @@ $Hrib.enable
 
 Good to go !
 
+## Create a boolean of a method to check if true or false 
+use !! 
+for exemple from our application controller 
+
+after checking if current_user is set using memoisation = @current_user ||= something
+def logged_in?
+  !!current_user 
+end

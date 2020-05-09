@@ -1,0 +1,31 @@
+<!-- Sessions login form -->
+<div class="container">
+  <div class="row center signup-form">
+    <div class="col s12 m8 offset-m2">
+      <div class="card-panel">
+        <h3 class="header">Log In</h3>
+        <div class="row">
+          <%= form_for(:sessions, html: {class: "col s12"}) do |f| %>
+            <div class="row">
+              <div class="input-field col s10 m8 offset-s1 offset-m2">
+                <i class="material-icons prefix">email</i>
+                <%= f.text_field :email, placeholder: "Email", autofocus: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s10 m8 offset-s1 offset-m2">
+                <i class="material-icons prefix">vpn_key</i>
+                <%= f.password_field :password, placeholder: "Enter password" %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s10 m8 offset-s1 offset-m2">
+                <%= f.button '<i class="material-icons right">arrow_forward</i>Log In'.html_safe, class: "btn waves-effect waves-light white-text" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
