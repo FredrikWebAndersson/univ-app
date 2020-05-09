@@ -11,3 +11,14 @@ Disable this with this helper methon inside cofig/environnment.rb
   html_tag.html_safe
 end
 ```
+
+## Use Hirb for easy console tesing
+gem 'hirb'
+$ bundle install 
+
+$ rails console 
+$Hrib.enable 
+=> true 
+
+Good to go !
+
