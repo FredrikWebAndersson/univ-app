@@ -6,4 +6,7 @@ class Student < ApplicationRecord
                     length: { maximum: 105 },
                     format: { with: VALID_EMAIL_REGEX }
   has_secure_password
+  has_many :student_courses
+  has_many :courses, through: :student_courses
+
 end

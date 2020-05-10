@@ -8,7 +8,7 @@
         <h3><%= @student.name %>'s profile</h3>
         <span class="black-text">
           <strong><%= @student.email %></strong>
-          <p>Course enrollments: none</p> 
+          <p>Course enrollments: <%= @student.courses.count %></p> 
         </span>
         <% if current_user == @student %>
           <%= link_to '<i class="material-icons right">create</i> Edit'.html_safe, edit_student_path(@student), class: "waves-effect waves-light btn grey darken-3" %>
@@ -18,4 +18,15 @@
   </div>
 </div>
 
-<h4>Current Enrollments</h4>
+<h4>Active Courses</h4>
+<% if @student.courses.empty? %>
+  No current courses
+<% else %>
+  <ul class="collection">
+    <% @student.courses.each do |course| %>
+    <li class="collection-item"><%= course.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+<p>
+</p>

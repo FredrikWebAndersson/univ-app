@@ -4,7 +4,8 @@
       <li><%= link_to "Log In", login_path %></li>  
       <li><%= link_to "Sign up", new_student_path %></li>
     <% else %>
-      <li><%= link_to"Log out", logout_path, method: :delete %></li> 
+      <li><%= link_to "Log out", logout_path, method: :delete %></li> 
+      <li><%= link_to "My profile", student_path(current_user) %></li>
     <% end %>
   </ul>
   <!-- Dropdown2 Structure -->
@@ -13,7 +14,8 @@
       <li><%= link_to "Log In", login_path %></li>  
       <li><%= link_to "Sign up", new_student_path %></li>
     <% else %>
-      <li><%= link_to"Log out", logout_path, method: :delete %></li> 
+      <li><%= link_to "Log out", logout_path, method: :delete %></li> 
+      <li><%= link_to "My profile", student_path(current_user) %></li>
     <% end %>
   </ul>
 
